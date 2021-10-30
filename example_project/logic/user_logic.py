@@ -1,8 +1,8 @@
 from random import randint
 from typing import Sequence
 
-from decoupled_repositories_example.repositories.models import User
-from decoupled_repositories_example.repositories.repository import UserRepository
+from example_project.repositories.models import User
+from example_project.repositories.repository import UserRepository
 
 
 class UserLogic:

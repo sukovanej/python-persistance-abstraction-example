@@ -6,9 +6,9 @@ from alembic.config import Config
 from alembic.environment import EnvironmentContext
 from alembic.runtime.migration import RevisionStep
 from alembic.script import ScriptDirectory
-from decoupled_repositories_example.database.migration import run_migrations_from_engine
-from decoupled_repositories_example.database.repository import UserRepositorySql
-from decoupled_repositories_example.repositories.repository import UserRepository
+from example_project.database.migration import run_migrations_from_engine
+from example_project.database.repository import UserRepositorySql
+from example_project.repositories.repository import UserRepository
 
 IN_MEMORY_DATABASE_URL = "sqlite:///:memory:"
 

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "decoupled-repositories-example"
+name = "example_project"
 version = "0.1.0"
 description = ""
 authors = ["milan.suk <milan.suk@kiwi.com>"]

@@ -1,4 +1,4 @@
-from decoupled_repositories_example import __version__
+from example_project import __version__
 
 
 def test_version():

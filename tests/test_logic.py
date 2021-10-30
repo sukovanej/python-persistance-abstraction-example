@@ -2,9 +2,9 @@ from typing import Sequence
 
 import pytest
 
-from decoupled_repositories_example.logic.user_logic import UserLogic
-from decoupled_repositories_example.repositories.models import User
-from decoupled_repositories_example.repositories.repository import UserRepository
+from example_project.logic.user_logic import UserLogic
+from example_project.repositories.models import User
+from example_project.repositories.repository import UserRepository
 
 
 class InMemoryUserRepository(UserRepository):

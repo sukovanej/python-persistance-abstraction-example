@@ -3,10 +3,10 @@ import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
-from decoupled_repositories_example.database.models import metadata
-from decoupled_repositories_example.database.repository import UserRepositorySql
-from decoupled_repositories_example.logic import UserLogic
-from decoupled_repositories_example.repositories.models import User
+from example_project.database.models import metadata
+from example_project.database.repository import UserRepositorySql
+from example_project.logic import UserLogic
+from example_project.repositories.models import User
 
 
 def create_user_logic() -> UserLogic:

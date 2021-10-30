@@ -1,7 +1,7 @@
 .PHONY: mypy test clean isort black
 
-all_dirs = decoupled_repositories_example tests scripts alembic
-all_type_checked_dirs = decoupled_repositories_example scripts
+all_dirs = example_project tests scripts alembic
+all_type_checked_dirs = example_project scripts
 
 run = poetry run
 mypy_args = --strict
@@ -10,7 +10,7 @@ mypy:
 	$(run) mypy $(mypy_args) $(all_type_checked_dirs)
 
 test:
-	$(run) pytest --cov=decoupled_repositories_example tests
+	$(run) pytest --cov=example_project tests
 
 isort:
 	$(run) isort $(all_dirs)
