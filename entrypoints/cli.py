@@ -4,15 +4,15 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
 from example_project.database.models import metadata
-from example_project.database.repository import UserRepositorySql
+from example_project.database.repositories import DatabaseUserRepository
 from example_project.logic import UserLogic
-from example_project.repositories.models import User
+from example_project.models import User
 
 
 def create_user_logic() -> UserLogic:
     engine = create_engine("sqlite:///user_database.db")
     session = Session(engine)
-    user_repository = UserRepositorySql(session)
+    user_repository = DatabaseUserRepository(session)
     user_logic = UserLogic(user_repository)
     return user_logic
 

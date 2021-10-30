@@ -3,13 +3,13 @@ from typing import Sequence
 from sqlalchemy import insert, select
 from sqlalchemy.orm import Session
 
-from example_project.repositories.models import User
-from example_project.repositories.repository import UserRepository
+from example_project.models import User
+from example_project.repositories import UserRepository
 
-from .models import users
+from ..models import users
 
 
-class UserRepositorySql(UserRepository):
+class DatabaseUserRepository(UserRepository):
     def __init__(self, session: Session) -> None:
         self._session = session
 

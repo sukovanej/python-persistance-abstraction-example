@@ -1,7 +1,7 @@
 .PHONY: mypy test clean isort black
 
-all_dirs = example_project tests scripts alembic
-all_type_checked_dirs = example_project scripts
+all_dirs = example_project tests entrypoints alembic
+all_type_checked_dirs = example_project entrypoints
 
 run = poetry run
 mypy_args = --strict

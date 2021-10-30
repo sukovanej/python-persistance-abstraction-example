@@ -1,8 +1,8 @@
 from random import randint
 from typing import Sequence
 
-from example_project.repositories.models import User
-from example_project.repositories.repository import UserRepository
+from example_project.models import User
+from example_project.repositories import UserRepository
 
 
 class UserLogic:

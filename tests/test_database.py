@@ -7,8 +7,8 @@ from alembic.environment import EnvironmentContext
 from alembic.runtime.migration import RevisionStep
 from alembic.script import ScriptDirectory
 from example_project.database.migration import run_migrations_from_engine
-from example_project.database.repository import UserRepositorySql
-from example_project.repositories.repository import UserRepository
+from example_project.database.repositories import DatabaseUserRepository
+from example_project.repositories import UserRepository
 
 IN_MEMORY_DATABASE_URL = "sqlite:///:memory:"
 
@@ -36,7 +36,7 @@ def in_memory_sqlalchemy_session() -> Session:
 
 @pytest.fixture
 def user_repository(in_memory_sqlalchemy_session: Session) -> UserRepository:
-    return UserRepositorySql(in_memory_sqlalchemy_session)
+    return DatabaseUserRepository(in_memory_sqlalchemy_session)
 
 
 def test_test_user_repository(user_repository: UserRepository) -> None:

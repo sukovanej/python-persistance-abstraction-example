@@ -2,9 +2,9 @@ from typing import Sequence
 
 import pytest
 
-from example_project.logic.user_logic import UserLogic
-from example_project.repositories.models import User
-from example_project.repositories.repository import UserRepository
+from example_project.logic import UserLogic
+from example_project.models import User
+from example_project.repositories import UserRepository
 
 
 class InMemoryUserRepository(UserRepository):

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Sequence
 
-from .models import User
+from example_project.models import User
 
 
 class UserRepository(ABC):

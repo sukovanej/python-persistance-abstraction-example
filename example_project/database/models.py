@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, MetaData, Table, Text
 from sqlalchemy.orm import registry
 
-from example_project.repositories.models import User
+from example_project.models import User
 
 metadata = MetaData()
 

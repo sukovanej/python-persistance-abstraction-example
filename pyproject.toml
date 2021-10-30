@@ -22,12 +22,12 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-cli = "scripts.cli:main"
+cli = "entrypoints.cli:main"
 
 [tool.isort]
 profile = "black"
 line_length = 120
-known_first_party = "decoupled_repositories_example"
+known_first_party = "example_project"
 sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 
 [tool.black]
