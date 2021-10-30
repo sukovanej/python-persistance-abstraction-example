@@ -66,9 +66,3 @@ TODO
  - **isort** with black profile
  - **mypy** using the *strict* mode
  - **pytest** with *pytest-cov* for test-coverage
-
-
-## TODO
-
- [ ] github actions
- [ ] simulate more complicated domain models and login upon them
