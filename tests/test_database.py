@@ -1,9 +1,10 @@
 import pytest
 from sqlalchemy import create_engine
+from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session
 
 from alembic.config import Config
-from alembic.environment import EnvironmentContext
+from alembic.runtime.environment import EnvironmentContext
 from alembic.runtime.migration import RevisionStep
 from alembic.script import ScriptDirectory
 from example_project.database.migration import run_migrations_from_engine
@@ -13,7 +14,7 @@ from example_project.repositories import UserRepository
 IN_MEMORY_DATABASE_URL = "sqlite:///:memory:"
 
 
-def run_alembic_migrations(engine) -> None:
+def run_alembic_migrations(engine: Engine) -> None:
     config = Config()
     config.set_main_option("script_location", "alembic")
     config.set_main_option("sqlalchemy.url", IN_MEMORY_DATABASE_URL)
