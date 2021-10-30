@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "decoupled-repositories-example"
+version = "0.1.0"
+description = ""
+authors = ["milan.suk <milan.suk@kiwi.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+SQLAlchemy = {extras = ["sqlite"], version = "^1.4.26"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+alembic = "^1.7.4"
+mypy = "^0.910"
+sqlalchemy2-stubs = "^0.0.2-alpha.19"
+pytest-cov = "^3.0.0"
+black = "^21.9b0"
+isort = "^5.9.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+cli = "scripts.cli:main"
+
+[tool.isort]
+profile = "black"
+line_length = 120
+known_first_party = "decoupled_repositories_example"
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+
+[tool.black]
+line-length = 120
+
+[tool.mypy]
+plugins = "sqlalchemy.ext.mypy.plugin"
+
+[tool.coverage.report]
+exclude_lines = ["..."]
