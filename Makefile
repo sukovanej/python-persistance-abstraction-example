@@ -12,7 +12,7 @@ test:
 	$(run) pytest --cov=example_project tests
 
 test-ci:
-	$(run) pytest --cov=example_project --cov-report=xml --cov-report=term tests
+	$(run) pytest --cache-clear --cov=example_project --cov-report=xml --cov-report=term tests
 
 isort:
 	$(run) isort $(all_dirs)

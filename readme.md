@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/sukovanej/python-persistence-abstraction-example/branch/master/graph/badge.svg?token=UH98O0UVCM)](https://codecov.io/gh/sukovanej/python-persistence-abstraction-example)
+
 # Python architecture example with abstracted persistance layer
 
 This repository contains a working Python codebase showing how to invert dependencies between
