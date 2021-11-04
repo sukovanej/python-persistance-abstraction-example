@@ -1,14 +1,14 @@
 import pytest
-from sqlalchemy import create_engine
-from sqlalchemy.engine import Engine
-from sqlalchemy.orm import Session
-
 from alembic.config import Config
 from alembic.runtime.environment import EnvironmentContext
 from alembic.runtime.migration import RevisionStep
 from alembic.script import ScriptDirectory
-from example_project.database.migration import run_migrations_from_engine
+from sqlalchemy import create_engine
+from sqlalchemy.engine import Engine
+from sqlalchemy.orm import Session
+
 from example_project.database.repositories import DatabaseUserRepository
+from example_project.database_migration import run_migrations_from_engine
 from example_project.repositories import UserRepository
 
 IN_MEMORY_DATABASE_URL = "sqlite:///:memory:"

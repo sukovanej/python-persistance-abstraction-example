@@ -28,6 +28,7 @@ cli = "entrypoints.cli:main"
 profile = "black"
 line_length = 120
 known_first_party = "example_project"
+known_third_party = "alembic, sqlalchemy"
 sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 
 [tool.black]

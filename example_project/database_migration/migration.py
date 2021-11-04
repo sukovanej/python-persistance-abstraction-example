@@ -1,8 +1,8 @@
+from alembic.runtime.environment import EnvironmentContext
 from sqlalchemy import create_engine, pool
 from sqlalchemy.engine import Engine
 
-from ..models import metadata
-from .environment_context import EnvironmentContext
+from example_project.database.models import metadata
 
 
 def _get_url_from_context(context: EnvironmentContext) -> str:
