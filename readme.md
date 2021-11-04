@@ -60,7 +60,7 @@ mapper_registry.map_imperatively(User, users)
 
 ### Database repositories testing
 
- - SQLite (SAVEPOINT[https://www.sqlite.org/lang_savepoint.html]
+ - [SQLite SAVEPOINT](https://www.sqlite.org/lang_savepoint.html)
 
 ## Static analysis and tests
 
