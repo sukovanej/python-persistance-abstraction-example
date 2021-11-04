@@ -1,3 +1,4 @@
+from typing import Iterator
 import pytest
 from alembic.config import Config
 from alembic.runtime.environment import EnvironmentContext
@@ -28,19 +29,33 @@ def run_alembic_migrations(engine: Engine) -> None:
 
 
 @pytest.fixture(scope="session")
-def in_memory_sqlalchemy_session() -> Session:
-    engine = create_engine(IN_MEMORY_DATABASE_URL)
-    run_alembic_migrations(engine)
-    session = Session(engine)
-    return session
+def in_memory_sqlalchemy_engine() -> Engine:
+    return create_engine(IN_MEMORY_DATABASE_URL, echo=True)
+
+
+@pytest.fixture(scope="session")
+def in_memory_sqlalchemy_session(in_memory_sqlalchemy_engine: Engine) -> Session:
+    run_alembic_migrations(in_memory_sqlalchemy_engine)
+    return Session(in_memory_sqlalchemy_engine)
+
+
+@pytest.fixture()
+def safe_sqlalchemy_session(in_memory_sqlalchemy_session: Session, in_memory_sqlalchemy_engine: Engine) -> Iterator[Session]:
+    # in_memory_sqlalchemy_engine.execute("SELECT * FROM users").all()
+    in_memory_sqlalchemy_engine.execute("SAVEPOINT test_savepoint;")
+    breakpoint()
+    yield in_memory_sqlalchemy_session
+    breakpoint()
+    in_memory_sqlalchemy_engine.execute("RELEASE test_savepoint;")
+    breakpoint()
 
 
 @pytest.fixture
-def user_repository(in_memory_sqlalchemy_session: Session) -> UserRepository:
-    return DatabaseUserRepository(in_memory_sqlalchemy_session)
+def user_repository(safe_sqlalchemy_session: Session) -> UserRepository:
+    return DatabaseUserRepository(safe_sqlalchemy_session)
 
 
-def test_test_user_repository(user_repository: UserRepository) -> None:
+def test_user_repository(user_repository: UserRepository) -> None:
     user_repository.create_user("milan", 25)
 
     all_users = user_repository.get_all()
@@ -49,3 +64,11 @@ def test_test_user_repository(user_repository: UserRepository) -> None:
     user_by_id = user_repository.get_by_id(all_users[0].id)
     assert user_by_id.name == "milan"
     assert user_by_id.age == 25
+
+
+def test_user_repository_multiple_users(user_repository: UserRepository) -> None:
+    user_repository.create_user("milan", 25)
+    user_repository.create_user("prdel", 12)
+
+    all_users = user_repository.get_all()
+    assert len(all_users) == 2

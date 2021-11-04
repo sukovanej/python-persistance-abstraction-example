@@ -9,7 +9,7 @@ mypy:
 	$(run) mypy $(all_type_checked_dirs)
 
 test:
-	$(run) pytest --cov=example_project tests
+	$(run) pytest --cov=example_project tests -s
 
 test-ci:
 	$(run) pytest --cache-clear --cov=example_project --cov-report=xml --cov-report=term tests
