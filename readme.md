@@ -5,10 +5,6 @@
 This repository contains a working Python codebase showing how to invert dependencies between
 database module and the logic.
 
-Note: what I call a `repository` is not really the repository pattern that usually occurs in
-the literature. Instead, I use the name repository for a class that hides the database access
-behind concrete interface which is not generally the same for different repository classes.
-
 ## What I want to achieve
 
  - the most important logic testable independently of the database
@@ -58,9 +54,23 @@ class User:
 mapper_registry.map_imperatively(User, users)
 ```
 
+## Note on the repository pattern
+
+The definition by Martin Fowler says that a repository is a collection-like interface for accessing domain objects.
+Therefore when using this defition my repositories are not really repositories because they are not collection-like. On
+the other side they work as a mediator between the data-mapping layer and the domain objects layer. So, what I call
+a repository in this project is probably not a repository in the original sense but it does a similar job. The primary
+goal is to create an abstract mediator that enables us to test and build the domain and infrastructure layer independently.
+
+Something to read:
+
+ - https://martinfowler.com/eaaCatalog/repository.html
+ - https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design
+
 ### Database repositories testing
 
- - SQLite (SAVEPOINT[https://www.sqlite.org/lang_savepoint.html]
+ - SQLite (SAVEPOINT)[https://www.sqlite.org/lang_savepoint.html]
+ - TODO: test db module using nested transactions
 
 ## Static analysis and tests
 
