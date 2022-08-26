@@ -25,7 +25,10 @@ def create_app(user_logic: UserLogic) -> FastAPI:
         methods=["POST"],
     )
     app.add_api_route(
-        "/user/list", cast_router_func(user_controller.list_all_users), response_model=UserListResponse, methods=["GET"],
+        "/user/list",
+        cast_router_func(user_controller.list_all_users),
+        response_model=UserListResponse,
+        methods=["GET"],
     )
     app.add_api_route(
         "/user/average-age",
