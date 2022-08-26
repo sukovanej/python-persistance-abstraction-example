@@ -5,7 +5,7 @@ description = ""
 authors = ["milan.suk <milan.suk@kiwi.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 SQLAlchemy = {extras = ["sqlite"], version = "^1.4.26"}
 
 [tool.poetry.dev-dependencies]
