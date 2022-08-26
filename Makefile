@@ -31,3 +31,9 @@ clean:
 	find $(all_dirs) -name "__pycache__" | xargs rm -rf
 	rm -rf .pytest_cache
 	rm -rf .mypy_cache
+
+run-api:
+	$(run) uvicorn entrypoints.api.app:app
+
+run-api-reload:
+	$(run) uvicorn entrypoints.api.app:app --reload
