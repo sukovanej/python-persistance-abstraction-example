@@ -54,6 +54,32 @@ class User:
 mapper_registry.map_imperatively(User, users)
 ```
 
+## Local development
+
+The project is using [poetry](https://python-poetry.org/).
+
+```bash
+$ poetry install
+```
+
+Create the sqlite database.
+
+```bash
+$ make create-database
+```
+
+Run the api.
+
+```bash
+$ make run-api
+```
+
+Run the cli.
+
+```bash
+$ poetry run cli
+```
+
 ## Note on the repository pattern
 
 The definition by Martin Fowler says that a repository is a collection-like interface for accessing domain objects.
@@ -69,7 +95,7 @@ Something to read:
 
 ### Database repositories testing
 
- - SQLite (SAVEPOINT)[https://www.sqlite.org/lang_savepoint.html]
+ - SQLite [SAVEPOINT](https://www.sqlite.org/lang_savepoint.html)
  - TODO: test db module using nested transactions
 
 ## Static analysis and tests
