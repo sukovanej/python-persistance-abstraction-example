@@ -37,3 +37,6 @@ run-api:
 
 run-api-reload:
 	$(run) uvicorn entrypoints.api.app:app --reload
+
+create-database:
+	$(run) cli create-database
